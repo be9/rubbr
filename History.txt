@@ -1,0 +1,56 @@
+== 1.1.4 / 2008-06-20
+
+* Bugfix: Very verbose messages needs to come in addition to normal verbose
+  messages.
+
+== 1.1.3 / 2008-06-20
+
+* Overfull and underfull hbox output can now be shown specifically with -V
+  switch.
+
+== 1.1.2 / 2008-04-08
+
+* BiBTeX style files (*.bst) now are copied from the vendor dir to
+  the build dir if needed.
+
+== 1.1.1 / 2008-04-07
+
+* Bugfix: lib/rubbr/change.rb not included because of faulty manifest.
+
+== 1.1.1 / 2008-04-07
+
+* Support for colorized cli output.
+
+== 1.1.0 / 2008-04-06
+
+* Source files are now compiled only if they've changed since last build.
+
+== 1.0.6 / 2008-04-01
+
+* New option: more verbose output.
+* Somehow a graphic files were not copied to the builddir. This
+  was unnoticed since I've used the \graphicspath{} macro.
+
+== 1.0.5 / 2008-03-30
+
+* Small bugfixes and no default output on successful builds.
+
+== 1.0.4 / 2008-03-07
+
+* Added support for the pdflatex engine.
+
+== 1.0.3 / 2008-02-28
+
+* Rerun latex when labels are updated.
+
+== 1.0.2 / 2008-02-28
+
+* Exit program on errors and sort warnings
+
+== 1.0.1 / 2008-02-10
+
+* Many small bugfixes and code refactorings
+
+== 1.0.0 / 2008-02-01
+
+* First public release
