@@ -4,6 +4,8 @@ module Rubbr
   # information if input files are missing and also cleans up the output of
   # these utilities.
   module Runner
+    class GotErrors < ::StandardError; end
+
     class Base
       include Rubbr::Cli
 
@@ -81,7 +83,8 @@ module Rubbr
           @errors.each do |message|
             error message
           end
-          exit
+          
+          raise GotErrors
         end
       end
     end

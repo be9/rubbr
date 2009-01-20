@@ -56,6 +56,8 @@ module Rubbr
           Rubbr::Builder::Ps.build
         end
       end
+    rescue Rubbr::Runner::GotErrors
+      notice "There were errors, processing stopped."
     end
 
     class Base
