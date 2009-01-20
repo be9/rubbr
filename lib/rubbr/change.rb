@@ -13,8 +13,13 @@ module Rubbr
         write_inventory sums
         true
       else
-        notice "No changes in #{Rubbr.options[:build_dir]} since last build"
-        false
+        if Rubbr.options[:force]
+          notice "No changes in #{Rubbr.options[:build_dir]} since last build, building anyway (--force)"
+          true
+        else 
+          notice "No changes in #{Rubbr.options[:build_dir]} since last build"
+          false
+        end
       end
     end
 

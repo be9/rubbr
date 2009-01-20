@@ -2,7 +2,7 @@ require 'optparse'
 $:.unshift File.dirname(__FILE__)
 
 module Rubbr
-  VERSION = '1.1.4'
+  VERSION = '1.1.4.1'
 
   autoload :Options,       'rubbr/options'
   autoload :Cli,           'rubbr/cli'
@@ -29,6 +29,10 @@ module Rubbr
         opts.on('-f', '--format [FORMAT]', [:dvi, :ps, :pdf],
           'Select output format (dvi, ps, pdf)') do |format|
           @@cmd_opts[:format] = format
+        end
+        
+        opts.on('-F', '--force', 'Force rebuild (even if files not changed)') do
+          @@cmd_opts[:force] = true
         end
 
         opts.on('-e', '--engine [ENGINE]', [:pdflatex, :ps, :pdf],
