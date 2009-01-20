@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = %q{eu@redflavor.com}
   s.executables = ["rubbr"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
-  s.files = ["History.txt", "Manifest.txt", "README.txt", "Rakefile", "bin/rubbr", "lib/rubbr.rb", "lib/rubbr/builder.rb", "lib/rubbr/change.rb", "lib/rubbr/cli.rb", "lib/rubbr/options.rb", "lib/rubbr/runner.rb", "lib/rubbr/scm.rb", "lib/rubbr/spell.rb", "lib/rubbr/viewer.rb", "lib/rubbr/builder/tex.rb", "lib/rubbr/builder/ps.rb", "lib/rubbr/builder/dvi.rb", "lib/rubbr/runner/ps2pdf.rb", "lib/rubbr/runner/pdflatex.rb", "lib/rubbr/runner/latex.rb", "lib/rubbr/runner/dvips.rb", "lib/rubbr/runner/bibtex.rb", "lib/rubbr/scm/subversion.rb", "lib/rubbr/scm/mercurial.rb", "lib/rubbr/viewer/ps.rb", "lib/rubbr/viewer/pdf.rb", "lib/rubbr/viewer/dvi.rb"]
+  s.files = ["History.txt", "Manifest.txt", "README.txt", "Rakefile", "bin/rubbr", "lib/rubbr.rb", "lib/rubbr/builder.rb", "lib/rubbr/change.rb", "lib/rubbr/cli.rb", "lib/rubbr/options.rb", "lib/rubbr/runner.rb", "lib/rubbr/scm.rb", "lib/rubbr/spell.rb", "lib/rubbr/viewer.rb", "lib/rubbr/builder/tex.rb", "lib/rubbr/builder/ps.rb", "lib/rubbr/builder/dvi.rb", "lib/rubbr/runner/ps2pdf.rb", "lib/rubbr/runner/pdflatex.rb", "lib/rubbr/runner/latex.rb", "lib/rubbr/runner/dvips.rb", "lib/rubbr/runner/bibtex.rb", "lib/rubbr/scm/git.rb", "lib/rubbr/scm/subversion.rb", "lib/rubbr/scm/mercurial.rb", "lib/rubbr/viewer/ps.rb", "lib/rubbr/viewer/pdf.rb", "lib/rubbr/viewer/dvi.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://rubyforge.org/projects/rubbr/}
   s.rdoc_options = ["--main", "README.txt"]

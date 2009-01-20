@@ -24,14 +24,20 @@ module Rubbr
     end
 
     def self.stats(dir)
-      if File.exists? File.join(dir, '.svn')
-        Rubbr::Scm::Subversion.new.collect_scm_stats
-      elsif File.exists? File.join(dir, '.hg')
-        Rubbr::Scm::Mercurial.new.collect_scm_stats
+      {
+        '.svn' => Rubbr::Scm::Subversion,
+        '.hg'  => Rubbr::Scm::Mercurial,
+        '.git' => Rubbr::Scm::Git
+      }.each do |ext, klass|
+        if File.exists? File.join(dir, ext)
+          return klass.new.collect_scm_stats
+        end
       end
+
+      nil
     end
 
-    %w(mercurial subversion).each do
+    %w(mercurial subversion git).each do
       |f| require File.dirname(__FILE__) + "/scm/#{f}"
     end
   end

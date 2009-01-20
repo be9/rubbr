@@ -20,6 +20,7 @@ lib/rubbr/runner/pdflatex.rb
 lib/rubbr/runner/latex.rb
 lib/rubbr/runner/dvips.rb
 lib/rubbr/runner/bibtex.rb
+lib/rubbr/scm/git.rb
 lib/rubbr/scm/subversion.rb
 lib/rubbr/scm/mercurial.rb
 lib/rubbr/viewer/ps.rb
