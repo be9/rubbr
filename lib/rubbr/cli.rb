@@ -15,7 +15,7 @@ module Rubbr
     end
 
     def color?(msg, code)
-      Rubbr.options[:color] ? "#{code}#{msg}" : msg
+      Rubbr.options[:color] ? "#{code}#{msg}\e[0m" : msg
     end
 
     def disable_stdout
