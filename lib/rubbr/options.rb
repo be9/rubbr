@@ -22,7 +22,8 @@ module Rubbr
           :verboser          => false,
           :color             => false,
           :format            => :dvi,
-          :engine            => :latex
+          :engine            => :latex,
+          :loop_delay        => 0.5
         }
       end
 

@@ -11,9 +11,12 @@ Build LaTeX documents.
 
 Usage: rubbr [options]
   -f, --format [FORMAT]            Select output format (dvi, ps, pdf)
+  -F, --force                      Force rebuild (even if files not changed)
   -e, --engine [ENGINE]            Select processing engine (latex, pdflatex)
   -d, --display                    Display the document
   -s, --spell                      Spell check source files
+  -l, --loop                       Go into a build loop
+  -D, --loop-delay [DELAY]         Set loop delay in seconds (default: 0.5)
   -v, --verbose                    Enable verbose feedback
   -V, --verboser                   Enable very verbose feedback
   -h, --help                       Show this help message
@@ -34,7 +37,8 @@ Standard project layout:
     :graphics_dir      => source_dir + '/graphics',
     :spell_dir         => source_dir,
     :spell_file        => 'dictionary.ispell',
-    :distribution_name => distribution_name(root_dir)
+    :distribution_name => distribution_name(root_dir),
+    :loop_delay        => 0.5
   }
 
 All these can be changed with a config.yml in the root_dir:

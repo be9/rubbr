@@ -19,3 +19,8 @@ Spec::Rake::SpecTask.new('specs') do |t|
   t.spec_opts = ["--format", "specdoc", "--colour"]
   t.spec_files = Dir['specs/*_spec.rb'].sort
 end
+
+task :cultivate do
+  system "touch Manifest.txt; rake check_manifest | grep -v \"(in \" | patch"
+  system "rake debug_gem | grep -v \"(in \" > `basename \\`pwd\\``.gemspec"
+end

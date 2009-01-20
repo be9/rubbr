@@ -1,3 +1,9 @@
+== 1.1.4.1 / 2009-01-20 (by be9)
+
+* Loop mode (--loop). Build, wait a bit, check for changes, rebuild if changed, repeat.
+* Build even if files were not changed since last build with --force option.
+* Bugfix: color was not reset in color messages.
+
 == 1.1.4 / 2008-06-20
 
 * Bugfix: Very verbose messages needs to come in addition to normal verbose

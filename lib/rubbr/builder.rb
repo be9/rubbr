@@ -24,7 +24,7 @@ module Rubbr
     end
 
     def self.build_in_a_loop
-      delay = Rubbr.options[:loop_delay] || 0.5
+      delay = Rubbr.options[:loop_delay]
       delay = 0.5 if delay == 0.0
 
       notice "Entering build loop. Press Ctrl-C to break out."
