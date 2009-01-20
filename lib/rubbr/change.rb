@@ -3,7 +3,6 @@ module Rubbr
   # Checks if source files have changed since last time they was accessed by
   # computing and storing a hash of their contents.
   class Change
-    extend Rubbr::Cli
     require 'digest/md5'
     require 'yaml'
 
@@ -13,13 +12,7 @@ module Rubbr
         write_inventory sums
         true
       else
-        if Rubbr.options[:force]
-          notice "No changes in #{Rubbr.options[:build_dir]} since last build, building anyway (--force)"
-          true
-        else 
-          notice "No changes in #{Rubbr.options[:build_dir]} since last build"
-          false
-        end
+        false
       end
     end
 

@@ -9,11 +9,38 @@ module Rubbr
   # tries to solve this issue by running the needed utilities only as many
   # times as needed.
   module Builder
+    extend Rubbr::Cli
 
     # Build to the spesified format.
     def self.build
-      return unless Rubbr::Change.d?
+      if Rubbr::Change.d?
+        do_build
+      elsif Rubbr.options[:force]
+        notice "No changes in #{Rubbr.options[:build_dir]} since last build, building anyway (--force)"
+        do_build
+      else 
+        notice "No changes in #{Rubbr.options[:build_dir]} since last build"
+      end
+    end
 
+    def self.build_in_a_loop
+      delay = Rubbr.options[:loop_delay] || 0.5
+      delay = 0.5 if delay == 0.0
+
+      notice "Entering build loop. Press Ctrl-C to break out."
+
+      while true
+        if Rubbr::Change.d?
+          notice "Change detected, building"
+
+          do_build
+        end
+
+        sleep delay
+      end
+    end
+
+    def self.do_build
       if Rubbr.options[:engine] == :pdflatex
         Rubbr::Builder::Tex.build
       else

@@ -47,6 +47,14 @@ module Rubbr
         opts.on('-s', '--spell', 'Spell check source files') do
           @@cmd_opts[:spell] = true
         end
+        
+        opts.on('-l', '--loop', 'Go into a build loop') do
+          @@cmd_opts[:loop] = true
+        end
+        
+        opts.on('-D', '--loop-delay [DELAY]', Float, 'Set loop delay in seconds (default: 0.5)') do |delay|
+          @@cmd_opts[:loop_delay] = delay
+        end
 
         opts.on('-v', '--verbose', 'Enable verbose feedback') do
           @@cmd_opts[:verbose] = true
@@ -74,11 +82,17 @@ module Rubbr
         exit 1
       end
 
-      if @@cmd_opts[:spell]
+      case
+      when @@cmd_opts[:spell]
         Rubbr::Spell.new.check
-      elsif @@cmd_opts[:view]
+
+      when @@cmd_opts[:view]
         Rubbr::Builder.build
         Rubbr::Viewer.view
+
+      when @@cmd_opts[:loop]
+        Rubbr::Builder.build_in_a_loop
+
       else
         Rubbr::Builder.build
       end
