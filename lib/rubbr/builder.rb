@@ -29,9 +29,13 @@ module Rubbr
 
       notice "Entering build loop. Press Ctrl-C to break out."
 
+      forced_first_time = Rubbr.options[:force]
+
       while true
-        if Rubbr::Change.d?
+        if Rubbr::Change.d? || forced_first_time
           notice "Change detected, building"
+
+          forced_first_time = false
 
           do_build
         end

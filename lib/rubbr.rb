@@ -2,7 +2,7 @@ require 'optparse'
 $:.unshift File.dirname(__FILE__)
 
 module Rubbr
-  VERSION = '1.1.4.1'
+  VERSION = '1.1.4.2'
 
   autoload :Options,       'rubbr/options'
   autoload :Cli,           'rubbr/cli'
@@ -38,6 +38,10 @@ module Rubbr
         opts.on('-e', '--engine [ENGINE]', [:pdflatex, :ps, :pdf],
           'Select processing engine (latex, pdflatex)') do |engine|
           @@cmd_opts[:engine] = engine
+        end
+
+        opts.on('-n', '--distribution-name NAME', String, 'Set distribution name') do |name|
+          @@cmd_opts[:distribution_name] = name
         end
 
         opts.on('-d', '--display', 'Display the document') do
