@@ -20,6 +20,7 @@ module Rubbr
         do_build
       else 
         notice "No changes in #{Rubbr.options[:build_dir]} since last build"
+        true
       end
     end
 
@@ -60,8 +61,12 @@ module Rubbr
           Rubbr::Builder::Ps.build
         end
       end
+
+      true
     rescue Rubbr::Runner::GotErrors
       notice "There were errors, processing stopped."
+
+      false
     end
 
     class Base

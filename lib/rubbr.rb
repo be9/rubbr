@@ -2,7 +2,7 @@ require 'optparse'
 $:.unshift File.dirname(__FILE__)
 
 module Rubbr
-  VERSION = '1.1.4.2'
+  VERSION = '1.1.4.3'
 
   autoload :Options,       'rubbr/options'
   autoload :Cli,           'rubbr/cli'
@@ -91,14 +91,14 @@ module Rubbr
         Rubbr::Spell.new.check
 
       when @@cmd_opts[:view]
-        Rubbr::Builder.build
+        exit 2 unless Rubbr::Builder.build
         Rubbr::Viewer.view
 
       when @@cmd_opts[:loop]
         Rubbr::Builder.build_in_a_loop
 
       else
-        Rubbr::Builder.build
+        exit 2 unless Rubbr::Builder.build
       end
     end
   end
