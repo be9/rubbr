@@ -72,7 +72,7 @@ module Rubbr
           end
 
           def copy_graphic_files
-            copy_files(Rubbr.options[:graphics_dir], %w(eps mps png))
+            copy_files(Rubbr.options[:graphics_dir], %w(eps mps png pdf))
           end
 
           def copy_files(source_dir, file_extensions)
