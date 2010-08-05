@@ -3,8 +3,8 @@ require 'hoe'
 require 'spec/rake/spectask'
 require './lib/rubbr.rb'
 
-Hoe.new('rubbr', Rubbr::VERSION) do |p|
-  p.rubyforge_name = 'rubbr'
+Hoe.new('be9-rubbr', Rubbr::VERSION) do |p|
+#  p.rubyforge_name = 'rubbr'
   p.author = 'Eivind Uggedal'
   p.email = 'eu@redflavor.com'
   p.summary = 'LaTeX builder'

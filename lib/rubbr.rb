@@ -2,7 +2,7 @@ require 'optparse'
 $:.unshift File.dirname(__FILE__)
 
 module Rubbr
-  VERSION = '1.1.4.3'
+  VERSION = '1.1.5'
 
   autoload :Options,       'rubbr/options'
   autoload :Cli,           'rubbr/cli'
@@ -30,7 +30,7 @@ module Rubbr
           'Select output format (dvi, ps, pdf)') do |format|
           @@cmd_opts[:format] = format
         end
-        
+
         opts.on('-F', '--force', 'Force rebuild (even if files not changed)') do
           @@cmd_opts[:force] = true
         end
@@ -51,11 +51,11 @@ module Rubbr
         opts.on('-s', '--spell', 'Spell check source files') do
           @@cmd_opts[:spell] = true
         end
-        
+
         opts.on('-l', '--loop', 'Go into a build loop') do
           @@cmd_opts[:loop] = true
         end
-        
+
         opts.on('-D', '--loop-delay [DELAY]', Float, 'Set loop delay in seconds (default: 0.5)') do |delay|
           @@cmd_opts[:loop_delay] = delay
         end

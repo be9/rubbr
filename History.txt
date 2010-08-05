@@ -1,3 +1,15 @@
+== 1.1.5 / 2010-08-05 (by be9)
+
+* Consider .sty files as source, .pdf files as graphics source.
+* Recursive copying of source files.
+
+== 1.1.4.3 / 2009-04-30 (by be9)
+
+* Exit code 2 on errors.
+* Add --distribution-name option, fix --force with --loop.
+* Do not exit on errors (broke loop mode).
+* Git support.
+
 == 1.1.4.1 / 2009-01-20 (by be9)
 
 * Loop mode (--loop). Build, wait a bit, check for changes, rebuild if changed, repeat.
