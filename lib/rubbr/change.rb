@@ -19,7 +19,7 @@ module Rubbr
     private
 
       def self.inventory
-        source_files = Dir["#{Rubbr.options[:source_dir]}/*.tex"]
+        source_files = Dir["#{Rubbr.options[:source_dir]}/*.{tex,sty}"]
         source_files.collect do |f|
           [f, digest(File.read(f))]
         end

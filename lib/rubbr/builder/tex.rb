@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Rubbr
   module Builder
     class Tex < Base
@@ -72,14 +74,17 @@ module Rubbr
           end
 
           def copy_graphic_files
-            copy_files(Rubbr.options[:graphics_dir], %w(eps mps png))
+            copy_files(Rubbr.options[:graphics_dir], %w(eps mps png pdf))
           end
 
           def copy_files(source_dir, file_extensions)
-            file_extensions.each do |file_extension|
-              Dir["#{source_dir}/*.#{file_extension}"].each do |file|
-                FileUtils.cp(file,  Rubbr.options[:build_dir])
-              end
+            src = Pathname.new(source_dir)
+            bld = Pathname.new(Rubbr.options[:build_dir])
+
+            Pathname.glob("#{source_dir}/**/*.{#{file_extensions * ','}}").each do |file|
+              target_dir = bld + file.relative_path_from(src).dirname
+              target_dir.mkpath
+              FileUtils.cp(file, target_dir)
             end
           end
       end
