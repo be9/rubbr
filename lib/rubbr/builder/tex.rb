@@ -68,7 +68,7 @@ module Rubbr
           end
 
           def copy_vendor_files
-            copy_files(Rubbr.options[:vendor_dir], %w(sty clo cls cfg bst))
+            copy_files(Rubbr.options[:vendor_dir], %w(sty clo cls cfg bst rtx))
           end
 
           def copy_graphic_files
