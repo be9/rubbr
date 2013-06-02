@@ -18,30 +18,57 @@ module Rubbr
       elsif Rubbr.options[:force]
         notice "No changes in #{Rubbr.options[:build_dir]} since last build, building anyway (--force)"
         do_build
-      else 
+      else
         notice "No changes in #{Rubbr.options[:build_dir]} since last build"
         true
       end
     end
 
     def self.build_in_a_loop
+      # single interrupt to rebuild, double to break
+      # inspired by autotest
+      interrupted = false
+      wants_to_break = false
+      trap 'INT' do
+        if interrupted
+          wants_to_break = true
+        else
+          interrupted = true
+          notice "Press Ctrl-C a second time to break out."
+          Kernel.sleep 1
+        end
+        raise Interrupt, nil
+      end
+
       delay = Rubbr.options[:loop_delay]
       delay = 0.5 if delay == 0.0
 
-      notice "Entering build loop. Press Ctrl-C to break out."
+      notice "Entering build loop. Press Ctrl-C to force rebuild, double Ctrl-C to break out."
 
       forced_first_time = Rubbr.options[:force]
 
-      while true
-        if Rubbr::Change.d? || forced_first_time
-          notice "Change detected, building"
+      loop do
+        begin
+          if Rubbr::Change.d? || forced_first_time
+            notice "Change detected, building"
 
-          forced_first_time = false
+            forced_first_time = false
 
-          do_build
+            do_build
+          end
+
+          sleep delay
+        rescue Interrupt
+          if wants_to_break
+            break
+          else
+            interrupted = false
+            wants_to_break = false
+
+            notice "Force building"
+            do_build
+          end
         end
-
-        sleep delay
       end
     end
 
