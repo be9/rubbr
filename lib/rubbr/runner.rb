@@ -45,7 +45,7 @@ module Rubbr
 
           run = `#@executable #@input_file`
           lines = run.split("\n")
-          @warnings = run.grep(messages).sort.uniq
+          @warnings = lines.grep(messages).sort.uniq
 
           if Rubbr.options[:verboser]
 
@@ -83,7 +83,7 @@ module Rubbr
           @errors.each do |message|
             error message
           end
-          
+
           raise GotErrors
         end
       end

@@ -29,6 +29,7 @@ module Rubbr
       # inspired by autotest
       interrupted = false
       wants_to_break = false
+      force_rebuild = false
       trap 'INT' do
         if interrupted
           wants_to_break = true
@@ -49,10 +50,11 @@ module Rubbr
 
       loop do
         begin
-          if Rubbr::Change.d? || forced_first_time
-            notice "Change detected, building"
+          if Rubbr::Change.d? || forced_first_time || force_rebuild
+            notice "Building..."
 
             forced_first_time = false
+            force_rebuild = false
 
             do_build
           end
@@ -64,9 +66,7 @@ module Rubbr
           else
             interrupted = false
             wants_to_break = false
-
-            notice "Force building"
-            do_build
+            force_rebuild = true
           end
         end
       end
