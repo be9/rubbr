@@ -5,6 +5,7 @@ module Rubbr
   VERSION = '1.1.5.1'
 
   autoload :Options,       'rubbr/options'
+  autoload :OS,            'rubbr/os'
   autoload :Cli,           'rubbr/cli'
   autoload :Config,        'rubbr/config'
   autoload :Scm,           'rubbr/scm'

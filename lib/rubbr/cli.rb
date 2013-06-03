@@ -2,6 +2,8 @@ module Rubbr
 
   # Handles command line output and input.
   module Cli
+    include Rubbr::OS
+
     def notice(message)
       puts color?(message, "\e[32m") if Rubbr.options[:verbose]
     end
@@ -20,28 +22,28 @@ module Rubbr
 
     def disable_stdout
       old_stdout = STDOUT.dup
-      STDOUT.reopen('/dev/null')
+      STDOUT.reopen(null_file)
       yield
       STDOUT.reopen(old_stdout)
     end
 
     def disable_stderr
       old_stderr = STDERR.dup
-      STDERR.reopen('/dev/null')
+      STDERR.reopen(null_file)
       yield
       STDERR.reopen(old_stderr)
     end
 
     def disable_stdinn
       old_stdinn = STDIN.dup
-      STDIN.reopen('/dev/null')
+      STDIN.reopen(null_file)
       yield
       STDIN.reopen(old_stdinn)
     end
 
     def executable?(executable)
       disable_stdout do
-        @existing = system("which #{executable}")
+        @existing = system("#{which_cmd} #{executable}")
       end
       @existing
     end
@@ -52,6 +54,26 @@ module Rubbr
       else
         error "Missing executable #{executable}"
         exit
+      end
+    end
+
+    private
+
+    def null_file
+      case os
+      when :windows
+        'NUL'
+      when :unix
+        '/dev/null'
+      end
+    end
+
+    def which_cmd
+      case os
+      when :windows
+        'where'
+      when :unix
+        'which'
       end
     end
   end
