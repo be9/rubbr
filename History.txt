@@ -1,3 +1,11 @@
+
+== 1.1.6 / 2013-05-03 (by be9)
+
+* Windows support (cypok)
+* Modern Ruby support (cypok)
+* Support force rebuild in a build loop (cypok)
+* Remove duplication of warnings (cypok)
+
 == 1.1.5 / 2010-08-05 (by be9)
 
 * Consider .sty files as source, .pdf files as graphics source.
