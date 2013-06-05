@@ -1,5 +1,9 @@
 
-== 1.1.6 / 2013-05-03 (by be9)
+== 1.1.6.1 / 2013-06-05 (by be9)
+
+* Fix modern Ruby support (cypok)
+
+== 1.1.6 / 2013-06-03 (by be9)
 
 * Windows support (cypok)
 * Modern Ruby support (cypok)
