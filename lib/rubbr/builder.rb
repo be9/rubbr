@@ -73,7 +73,8 @@ module Rubbr
     end
 
     def self.do_build
-      if Rubbr.options[:engine] == :pdflatex
+      case Rubbr.options[:engine]
+      when :pdflatex, :xelatex
         Rubbr::Builder::Tex.build
       else
         case Rubbr.options[:format]

@@ -36,8 +36,8 @@ module Rubbr
           @@cmd_opts[:force] = true
         end
 
-        opts.on('-e', '--engine [ENGINE]', [:pdflatex, :ps, :pdf],
-          'Select processing engine (latex, pdflatex)') do |engine|
+        opts.on('-e', '--engine [ENGINE]', [:latex, :pdflatex, :xelatex],
+          'Select processing engine (latex, pdflatex, xelatex)') do |engine|
           @@cmd_opts[:engine] = engine
         end
 

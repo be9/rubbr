@@ -89,7 +89,7 @@ module Rubbr
       end
     end
 
-    %w(latex bibtex dvips ps2pdf pdflatex).each do
+    %w(latex bibtex dvips ps2pdf pdflatex xelatex).each do
       |f| require File.dirname(__FILE__) + "/runner/#{f}"
     end
   end

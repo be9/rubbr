@@ -3,7 +3,8 @@ module Rubbr
 
     # View the spesified format.
     def self.view
-      if Rubbr.options[:engine] == :pdflatex
+      case Rubbr.options[:engine]
+      when :pdflatex, :xelatex
         Rubbr::Viewer::Pdf.new.launch
       else
         case Rubbr.options[:format]
