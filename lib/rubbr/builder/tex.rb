@@ -15,6 +15,9 @@ module Rubbr
           when :pdflatex
             @output_format = :pdf
             preprocessor = Rubbr::Runner::PdfLaTeX
+          when :xelatex
+            @output_format = :pdf
+            preprocessor = Rubbr::Runner::XeLaTeX
           else
             @output_format = :dvi
             preprocessor = Rubbr::Runner::LaTeX

@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "be9-rubbr"
   s.version     = Rubbr::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Eivind Uggedal", "Oleg Dashevskii"]
+  s.authors     = ["Eivind Uggedal", "Oleg Dashevskii", "Vladimir Parfinenko"]
   s.email       = ["olegdashevskii@gmail.com"]
   s.homepage    = "http://github.com/be9/rubbr"
   s.summary     = %q{LaTeX builder}

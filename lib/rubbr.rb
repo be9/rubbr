@@ -2,7 +2,7 @@ require 'optparse'
 $:.unshift File.dirname(__FILE__)
 
 module Rubbr
-  VERSION = '1.1.6.1'
+  VERSION = '1.1.7'
 
   autoload :Options,       'rubbr/options'
   autoload :OS,            'rubbr/os'
@@ -36,8 +36,8 @@ module Rubbr
           @@cmd_opts[:force] = true
         end
 
-        opts.on('-e', '--engine [ENGINE]', [:pdflatex, :ps, :pdf],
-          'Select processing engine (latex, pdflatex)') do |engine|
+        opts.on('-e', '--engine [ENGINE]', [:latex, :pdflatex, :xelatex],
+          'Select processing engine (latex, pdflatex, xelatex)') do |engine|
           @@cmd_opts[:engine] = engine
         end
 

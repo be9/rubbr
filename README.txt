@@ -12,7 +12,7 @@ Build LaTeX documents.
 Usage: rubbr [options]
   -f, --format [FORMAT]            Select output format (dvi, ps, pdf)
   -F, --force                      Force rebuild (even if files not changed)
-  -e, --engine [ENGINE]            Select processing engine (latex, pdflatex)
+  -e, --engine [ENGINE]            Select processing engine (latex, pdflatex, xelatex)
   -d, --display                    Display the document
   -s, --spell                      Spell check source files
   -l, --loop                       Go into a build loop
